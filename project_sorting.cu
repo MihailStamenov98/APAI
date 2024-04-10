@@ -11,7 +11,7 @@
 #define BLKCOUNT 32
 #define MYBLKDIM 64
 #define GRAN 32
-
+const int x = 10;
 const int threadsCount = (BLKCOUNT * MYBLKDIM);
 
 __device__ int getIDofThread() {
