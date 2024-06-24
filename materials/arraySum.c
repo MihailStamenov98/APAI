@@ -174,13 +174,20 @@ void sum9(int* A, int n)
 
 int main(int argc, char *argv[])
 {
+	printf("*** HERE\n");
+
 	char *a = argv[1];
     int size = atoi(a);
-    int A[size];
+    int *A = malloc(size * sizeof(int));
+    if (A == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
     
-	srand((unsigned int)time(NULL));    
-    for (int i=0;i<size;i++)
-    	A[i] = rand()%2;
+    srand((unsigned int)time(NULL));    
+    for (int i = 0; i < size; i++) {
+        A[i] = rand() % 2;
+    }
     
     printf("*** SEQUENTIAL WITH COUNTER\n");
     sum1(A, size);

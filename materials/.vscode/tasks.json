@@ -1,43 +1,37 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "type": "shell",
-            "command": "gcc",
-            "args": [
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+      {
+          "label": "build",
+          "type": "shell",
+          "command": "gcc",
+          "args": [
               "-fopenmp",
               "-g",
               "${file}",
               "-o",
               "${fileDirname}\\${fileBasenameNoExtension}.exe"
-            ],
-            "group": {
+          ],
+          "group": {
               "kind": "build",
               "isDefault": true
-            },
-            "problemMatcher": ["$gcc"],
-            "detail": "Generated task by user."
           },
-          {
-            "label": "run",
-            "type": "shell",
-            "command": "",
-            "args": [
-              "-fopenmp",
-              "-g",
-              "${file}",
-              "-o",
-              "${fileDirname}\\${fileBasenameNoExtension}.exe"
-            ],
-            "group": {
-              "kind": "build",
+          "problemMatcher": ["$gcc"],
+          "detail": "Generated task by user."
+      },
+      {
+          "label": "run",
+          "type": "shell",
+          "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+          "args": [],
+          "group": {
+              "kind": "test",
               "isDefault": true
-            },
-            "problemMatcher": ["$gcc"],
-            "detail": "Generated task by user."
-          }
-    ]
+          },
+          "problemMatcher": [],
+          "detail": "Run the compiled executable."
+      }
+  ]
 }
