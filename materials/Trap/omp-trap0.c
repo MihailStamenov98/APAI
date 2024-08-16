@@ -112,7 +112,7 @@ int main( int argc, char* argv[] )
     /* Implicit barrier here */
     
     /* Only one thread (the master) computes the sum of partial results */
-    result = 0.0;
+    double result = 0.0;
     for (i=0; i<thread_count; i++) {
         result += partial_result[i];
     }
